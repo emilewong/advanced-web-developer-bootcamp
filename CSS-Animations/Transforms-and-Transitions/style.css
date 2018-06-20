@@ -23,3 +23,13 @@ button:active{
 h1:active, p:active{
     color: yellow;
 }
+
+#btn1:active{
+    background-color: purple;
+}
+#btn2:hover{
+    background-color: green;
+}
+#btn3:focus{
+    background-color: orange;
+}
