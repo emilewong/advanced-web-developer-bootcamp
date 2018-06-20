@@ -1,0 +1,30 @@
+{
+  "name": "advanced-web-developer-bootcamp",
+  "version": "1.0.0",
+  "description": "Coolt steel - Advanced web developer bootcamp code assignements and tests",
+  "main": "index.html",
+  "scripts": {
+    "start": "npm run lite",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lite": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hhaythem/advanced-web-developer-bootcamp.git"
+  },
+  "author": "HADHAB HAYTHEM",
+  "license": "ISC",
+  "devDependencies": {
+    "lite-server": ""
+  },
+  "bugs": {
+    "url": "https://github.com/hhaythem/advanced-web-developer-bootcamp/issues"
+  },
+  "homepage": "https://github.com/hhaythem/advanced-web-developer-bootcamp#readme",
+  "dependencies": {
+    "bootstrap": "^4.1.1",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.3",
+    "tether": "^1.4.4"
+  }
+}
