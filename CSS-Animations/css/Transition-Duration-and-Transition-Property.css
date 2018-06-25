@@ -23,12 +23,17 @@
 
 } */
 .animated {
-    transition-property: transform;
+    transition: 
+        transform 2s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s,
+        background-color 0.5s linear;
+    /* transition-property: transform;
     transition-duration: 2s;
     transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition-delay: 1s; */
 }
 
 .box:hover {
     transform: translateX(300px);
+    background-color: teal;
 }
 
