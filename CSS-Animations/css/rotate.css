@@ -8,7 +8,10 @@ p{
 
 .transformed {
     background-color: #9b59b6;
-    transform: rotate(90deg) scale(0.5);    
-    transform-origin: right bottom;
+    -webkit-transform: rotate(90deg) scale(0.5);
+        -ms-transform: rotate(90deg) scale(0.5);
+            transform: rotate(90deg) scale(0.5);    
+    -webkit-transform-origin: right bottom;    
+        -ms-transform-origin: right bottom;    
+            transform-origin: right bottom;
 }
-
