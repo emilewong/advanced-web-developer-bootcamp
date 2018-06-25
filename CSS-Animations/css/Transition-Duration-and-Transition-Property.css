@@ -1,4 +1,4 @@
-.box{
+ .box{
     background: #9b59b6;
     height: 100px;
     width: 100px;
@@ -8,10 +8,11 @@
     font-size: 17px;
     border-radius: 20px;
 }
-
+/*
 .animated{
     transition-property: background-color, border-radius;
-    transition-duration: 5s, 1s;
+    transition-duration: 1s, 1s;
+    transition-delay: 5s, 2s;
 }
 
 .box:hover {
@@ -20,4 +21,14 @@
     transform: scale(2);
     border-radius: 50px;
 
+} */
+.animated {
+    transition-property: transform;
+    transition-duration: 2s;
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
+
+.box:hover {
+    transform: translateX(300px);
+}
+
