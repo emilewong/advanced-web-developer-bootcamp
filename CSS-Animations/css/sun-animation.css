@@ -49,7 +49,7 @@ body{
 
 @keyframes sunanimation{
     0%{
-        transform: translate(-250px , 100px);
+        transform: translate(-250px , 250px);
         background-color: orange;
     }
     25%{
@@ -61,12 +61,11 @@ body{
         background-color: yellow;
     }
     75%{
-        transform: translate(850px , 0px);
+        transform: translate(950px , 0px);
         background-color: yellow;
     }
     100%{
-        transform: translate(1350px, 250px);
+        transform: translate(1250px, 250px);
         background-color: red;
-
     }
 }
