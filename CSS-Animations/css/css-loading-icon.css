@@ -1,0 +1,72 @@
+html{
+    background: #ecf0f1;
+}
+
+body, h1, h2{
+    font-family: Helvetica, sans-serif;
+    color: #2c3e50;
+    margin: 0;
+    padding: 0;
+    font-weight: 300;
+}
+
+h1{
+    font-size: 80px;
+}
+
+h2{
+    font-size: 36px;
+    opacity: 0;
+    animation: textappear 2s 3s linear forwards infinite;
+}
+
+.container{
+    margin: 4em;
+    text-align: center;
+}
+
+.loader{
+    margin: auto;
+    border: 16px solid #dbc3c7;
+    width: 120px;
+    height: 120px;
+    border-top-color: #1abc9c;
+    border-bottom-color: #3498db;
+    border-radius: 50%;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin{
+    0%{
+        transform: rotate(0deg);
+    }
+    25%{
+        transform: rotate(180deg) scale(1.2);
+        border-top-color: thistle;
+        border-bottom-color: plum;
+    }
+    50%{
+        transform: rotate(360deg) scale(1.1);
+        border-top-color: rebeccapurple;
+        border-bottom-color: palegreen;        
+    }
+    75%{
+        transform: rotate(720deg);
+        border-top-color: rgb(14, 194, 185);
+        border-bottom-color: rgb(173, 69, 9);
+    }
+    100%{
+        transform: rotate(1080deg);
+    }
+}
+
+@keyframes textappear{
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+        transform: scale(1.1);
+    }
+}
