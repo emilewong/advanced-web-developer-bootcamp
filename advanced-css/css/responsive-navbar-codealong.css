@@ -44,11 +44,13 @@ i{
 }
 
 @media screen and (max-width: 600px){
+
     nav{
         flex-direction: column;
         align-items: center;
         background: #34495e;
     }
+
     a {
         color: white;
     }
