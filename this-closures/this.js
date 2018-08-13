@@ -62,7 +62,6 @@ function invokeMax(fn, num){
             return "Maxed Out"
         }
         counter++;
-        console.log(arguments);
         return fn.apply(this,arguments);
     }
 }
