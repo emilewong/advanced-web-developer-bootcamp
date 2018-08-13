@@ -99,3 +99,19 @@ function partition(arr, callback){
     }, [[],[]]);
     
 }
+
+/* You have an array of objects in JavaScript. Each one contains a name (a string) and ranking (a number). 
+Write two functions, one to return the objects ordered by ranking and another to return the average ranking. 
+
+[
+        {ranking: 10, name: 'Elie'}, 
+        {ranking: 5, name: 'Tim'}, 
+        {ranking: 22, name: 'Matt'}, 
+        {ranking: 1, name: 'Colt'}
+       ]
+       
+*/
+
+function objectsOrdered(arr){
+    
+}
