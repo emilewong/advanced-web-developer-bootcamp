@@ -12,7 +12,7 @@ $(document).ready(function(){
     });
 
     $('.list').on('click', 'span', function(){
-        
+        removeTodo($(this).parent());
     });
 });
 
@@ -44,4 +44,19 @@ function createTodo(){
     .catch(function(err){
         console.log(err);
     })
+}
+
+function removeTodo(todo){
+    var clickedId = todo.data('id');
+        var deleteUrl = '/api/todos/' + clickedId;
+        $.ajax({
+            method: 'DELETE',
+            url: deleteUrl
+        })
+        .then(function(data){
+            todo.remove();
+        })
+        .catch(function(err){
+            console.log(err);
+        })
 }
