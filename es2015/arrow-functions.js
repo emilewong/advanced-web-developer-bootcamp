@@ -10,9 +10,9 @@ make sure your function is also called tripleAndFilter
     }
 
 */
-function tripleAndFilter(arr){
-    return arr.map(value =>value * 3).filter(value => value % 5 === 0);
-}
+
+let tripleAndFilter = arr => arr.map(value =>value * 3).filter(value => value % 5 === 0);
+
 
 /* 2 - Refactor the following code to use ES2015 arrow functions.
 Make sure your function is also called doubleOddNumbers
@@ -26,10 +26,8 @@ Make sure your function is also called doubleOddNumbers
     }
 
 */
+let doubleOddNumbers = arr => arr.filter(val => val % 2 !== 0).map(val => val*2);
 
-function doubleOddNumbers(arr){
-    return arr.filter(arr => val % 2 !== 0).map(val => val*2);
-}
 
 /* 3 - Refactor the following code to use ES2015 arrow functions. 
 Make sure your function is also called mapFilterAndReduce.
@@ -45,10 +43,12 @@ Make sure your function is also called mapFilterAndReduce.
       }, {})
     }
 */
+let mapFilterAndReduce = arr => arr.map(val => val.firstName ).filter(val => val.length < 5)
+.reduce((acc,next)=>{
+    acc[next] = next.length;
+    return acc;
+},{});
 
-function mapFilterAndReduce(arr){
-    return arr.map(val => val.firstName).filter(val => val.length < 5).reduce((acc, next) => acc[next] = next.length, acc, {});
-}
 
 /* 4 - Write a function called createStudentObj which accepts two parameters, 
 firstName and lastName and returns an object with the keys of firstName and lastName with the values as the parameters passed to the function.
@@ -56,9 +56,8 @@ firstName and lastName and returns an object with the keys of firstName and last
 Example:
     createStudentObj('Elie', 'Schoppik') // {firstName: 'Elie', lastName: 'Schoppik'}
 */
-function createStudentObj(first, last){ 
-    return {'firstName': first, 'lastName': last};
-}
+let createStudentObj = (firstName, lastName) => ({firstName: lastName, lastName: lastName});
+    
 
 /* 5 - Given the following code: 
 
@@ -78,6 +77,8 @@ Refactor this code to use arrow functions to make sure that in 1000 milliseconds
 var instructor = {
     firstName: "Colt",
     sayHi: function(){
-      setTimeout(() => console.log('Hello ' + this.firstName),1000);
+      setTimeout(() => {
+          console.log('Hello ' + this.firstName)
+        },1000);
     }
   }
