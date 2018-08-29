@@ -74,4 +74,3 @@ function reverseArray(arr){
     }
     return arr;
 }
-  
