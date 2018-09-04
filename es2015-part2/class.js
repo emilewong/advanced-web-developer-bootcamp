@@ -16,7 +16,12 @@ class Person{
         this.favoriteColor = favoriteColor;
         this.favoriteNumber = favoriteNumber;
     }
+    //Instance method
     multiplyFavoriteNumber(num){
         return this.favoriteNumber * 10;
+    }
+    //Class method
+    static isObj(obj){
+        return obj.constructor === Person;
     }
 }
