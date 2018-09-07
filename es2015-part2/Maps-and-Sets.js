@@ -1,3 +1,5 @@
+//maps
+
 class MessageBoard {
     
     /*
@@ -76,10 +78,9 @@ class MessageBoard {
 
     
     findMessageByValue(val){
-      if(this.messages.has(message)){
-          return message;
+      for(let msg of this.messages.values()){
+          if (msg === val) return msg;
       }
-      return undefined;
     }
     
     /*
@@ -96,7 +97,8 @@ class MessageBoard {
     */
     
     removeMessage(key){
-        this.messages.delete(key);        
+        this.messages.delete(key);    
+        return this;    
     }
     
     /*
@@ -124,9 +126,20 @@ class MessageBoard {
     */
     
     messagesToArray(){
-       return this.messages.reduce((acc, next) => acc[next] = next ,[]);
+
+        /*  ES5   
+            var newArr = [];
+            for (let val of this.messages.values()){
+                newArr.push(val);
+            }
+            return newArr;
+        */
+        //ES2015 solution using Array.from
+        return Array.from(this.messages.values());
     }
 }
+
+//Sets
 
 /*
 Write a function called uniqueValues which accepts an array and returns the number of unique values in the array
@@ -135,9 +148,7 @@ uniqueValues([1,1,2,2,2,3,3,3,3,4,4,4,5,5,6]) // 6
 */
 
 function uniqueValues(arr){
-  var newSet = new Set;
-  newSet.add(arr);
-  return newSet.size();
+  return new Set(arr).size;
 }
 
 /*
@@ -150,17 +161,7 @@ hasDuplicates([]) // false
 */
 
 function hasDuplicates(arr){
-  var l = arr.length;
-  var newSet = new Set;
-  if(l === 0){
-      return false;
-  }
-  else if (newSet.add(arr).size() === l){
-      return false;
-  }
-  else{
-      return true;
-  }
+  return new Set(arr).size !== arr.length;
 }
 
 /*
@@ -177,6 +178,15 @@ countPairs([5,4,-10,6,-20,16],-4) // 2
 countPairs([0,-4],-4) // 1
 */
 
-function countPairs(){
-  
+function countPairs(arr, num){
+  //find complement number in the cache set
+    var cache = new Set(arr);
+    var count = 0;
+    for(let val of arr){
+        cache.delete(val);
+        if(cache.has(num-val)){
+            count++;
+        }
+    }
+    return count;
 }
