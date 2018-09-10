@@ -40,12 +40,14 @@ areAllNumbersFinite(finiteNumsExceptOne) // false
 */
 
 function areAllNumbersFinite(arr){
-    for (let num of arr){
+    return arr.every(Number.isFinite); 
+
+    /* for (let num of arr){
         if(!Number.isFinite(num)){
             return false;
         }
     }
-    return true;
+    return true; */
 }
 
 /* 
