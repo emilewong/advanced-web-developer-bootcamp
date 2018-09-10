@@ -35,3 +35,52 @@ function getMostFollowers(...args){
         return `${max.name} has the most followers with ${max.followers}`
     })    
 }
+
+/** 2. Write a function called starWarsString, which accepts a number. You should then make an AJAX call to the Star Wars API (https://swapi.co/ ) 
+ * to search for a specific character by the number passed to the function. Your function should return a promise that when resolved will console.log 
+ * the name of the character.
+
+starWarsString(1).then(function(data){
+    console.log(data)
+})
+ 
+"Luke Skywalker"
+Bonus 1 -  Using the data from the previous AJAX call above, make another AJAX request to get the first film that character is featured in and return a promise 
+that when resolved will console.log the name of the character and the film they are featured in 
+
+starWarsString(1).then(function(data){
+    console.log(data)
+})
+ 
+"Luke Skywalker is featured in The Empire Strikes Back, directed by Irvin Kershner"
+Bonus 2 -  Using the data from Bonus 1 - make another AJAX call to get the information about the first planet that the film contains. 
+Your function should return a promise that when resolved will console.log the name of the character and 
+the film they are featured in and the name of the planet. 
+
+starWarsString(1).then(function(data){
+    console.log(data)
+})
+ 
+"Luke Skywalker is featured in The Empire Strikes Back, directed by Irvin Kershner and it takes place on Hoth" */
+
+function starWarsString(num){
+    var str='';
+    return $.getJSON(`https://swapi.co/api/people/${num}/`).then(function(data){
+        str += `${data.name} is featured in `;    
+        var filmApi = data.films[0];
+        return $.getJSON(filmApi);
+
+    })
+    .then(function(result){
+        str += `${result.title}, directed by ${result.director} and it takes place on `
+        var placeApi = result.planets[0];
+        return $.getJSON(placeApi);
+    })
+    .then(function(place){
+        str += place.name;
+        return str;
+    })
+    .then(function(finalString){
+        return finalString;
+    })
+}
