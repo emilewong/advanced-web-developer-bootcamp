@@ -190,3 +190,12 @@ function countPairs(arr, num){
     }
     return count;
 }
+
+/**
+ * 
+ * You have an array of objects in JavaScript. Each one contains a name (a string) and ranking (a number). 
+ * Write two functions, one to return the objects ordered by ranking and another to return the average ranking.
+ * 
+ */
+
+ 
