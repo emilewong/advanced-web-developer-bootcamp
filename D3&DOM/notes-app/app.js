@@ -1,26 +1,26 @@
 
 //Remove All Notes
 d3.select(".remove")
-  .on("click", function(){
+  .on("click", () =>{
     d3.selectAll(".note")
       .remove();
   });
 
 //I'm feeling Lucky 
 d3.select(".lucky")
-  .on("click", function(){
+  .on("click", () =>{
     d3.selectAll(".note")
       .style("font-size", function(){
         return Math.random() *100 +"px";
       });
   });
 
-var input = d3.select('input');
-var preview = d3.select('.preview');
+let input = d3.select('input');
+let preview = d3.select('.preview');
 //preview
 
-input.on('input', function(){
-  var note = d3.event.target.value;
+input.on('input', () =>{
+  let note = d3.event.target.value;
   //console.log(note);
   setPreview(note);
 });
@@ -31,7 +31,7 @@ function setPreview(val){
 }
 
 d3.select("#new-note")
-    .on('submit', function() {
+    .on('submit', () => {
       d3.event.preventDefault();      
       d3.select("#notes")
         .append('p')
