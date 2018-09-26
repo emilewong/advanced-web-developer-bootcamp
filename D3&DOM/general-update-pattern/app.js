@@ -27,6 +27,20 @@ var quotes = [
   }
 ];
 
+var newQuotes = [
+  {
+    quote: "Houston, we have a problem.",
+    movie: "Apollo 13",
+    year: 1995,
+    rating: "PG-13"
+  }, {
+    quote: "Gentlemen, you can't fight in here! This is the war room!",
+    movie: "Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb",
+    year: 1964,
+    rating: "PG"
+  }
+];
+
 var colors = {
   "G": "#3cff00",
   "PG": "#f9ff00",
@@ -36,7 +50,27 @@ var colors = {
 
 var add = d3.select("#add");
 add.on("click", function(){
-  
+  quotes = quotes.concat(newQuotes);
+  //update selection
+  var listItems = d3.select("#quotes")
+    .selectAll("li")
+    .data(quotes);
+    
+    //Enter selection
+    //graping the enter selection and making unique changes to that selection
+    listItems
+      .enter()
+      .append("li")
+        .text(d => '"' + d.quote + '" - ' + d.movie + ' (' + d.year + ')')
+        .style("margin", "20px")
+        .style("padding", "0px")//unique change here in padding 0px instead of 20px
+        .style("font-size", d => d.quote.length < 25 ? "2em" : "1em")
+        .style("background-color", d => colors[d.rating])
+        .style("border-radius", "8px")
+      .merge(listItems)//merging changes to both the enter and the update selection
+        .style("color", "#5599ff");
+
+  add.remove();
 })
 
 d3.select("#quotes")
@@ -52,15 +86,19 @@ d3.select("#quotes")
     .style("background-color", d => colors[d.rating])
     .style("border-radius", "8px");
 
+var removeBtn = d3.select("#remove");
 
-//remove - exit selection and key function to update the view
-var nonRquotes = quotes.filter(function(movie){
-  return movie.rating !== "R";
-})
+removeBtn.on('click', function() {
+  var nonRQuotes = quotes.filter(function(movie) {
+    return movie.rating !== 'R';
+  });
+  
+  d3.selectAll("li")
+    .data(nonRQuotes, function(d) {
+      return d.quote;
+    })
+    .exit()
+    .remove();
 
-d3.selectAll("li")
-  .data(nonRquotes, function(d){//override the default behaviour of joining data by index
-    return d.quote	
-})
-  .exit()
-  .remove()
+  removeBtn.remove();
+});
